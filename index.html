@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>啊噗噜工作室 - 风光摄影</title>
+    <script src="https://cdn.tailwindcss.com/3.3.3"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        .photo-card {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .photo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        .photo-card img {
+            transition: transform 0.5s ease;
+        }
+        .photo-card:hover img {
+            transform: scale(1.05);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #60a5fa;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(90deg, #60a5fa, #3b82f6);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-blue-400">
+                <i class="fas fa-camera-retro mr-2"></i>啊噗噜工作室
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#intro" class="nav-link text-slate-200 hover:text-blue-400">工作室介绍</a>
+                <a href="#gallery" class="nav-link text-slate-200 hover:text-blue-400">作品展示</a>
+                <a href="#about" class="nav-link text-slate-200 hover:text-blue-400">关于我们</a>
+                <a href="#contact" class="nav-link text-slate-200 hover:text-blue-400">联系方式</a>
+            </div>
+            <button id="mobileMenuBtn" class="md:hidden text-slate-200 focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobileMenu" class="mobile-menu bg-slate-800/95 md:hidden">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="#intro" class="text-slate-200 hover:text-blue-400 py-2">工作室介绍</a>
+                <a href="#gallery" class="text-slate-200 hover:text-blue-400 py-2">作品展示</a>
+                <a href="#about" class="text-slate-200 hover:text-blue-400 py-2">关于我们</a>
+                <a href="#contact" class="text-slate-200 hover:text-blue-400 py-2">联系方式</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-black/50 z-10"></div>
+        <img src="https://s.coze.cn/image/FkmsbmHGYV4/" 
+             alt="啊噗噜工作室风光摄影" 
+             class="absolute inset-0 w-full h-full object-cover">
+        <div class="relative z-20 text-center px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">捕捉世界的美丽瞬间</h1>
+            <p class="text-xl md:text-2xl text-slate-200 mb-8">啊噗噜工作室 · 专业风光摄影</p>
+            <a href="#gallery" class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-all duration-300 transform hover:scale-105">
+                浏览作品 <i class="fas fa-arrow-down ml-2"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- 工作室介绍 -->
+    <section id="intro" class="py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center section-title">工作室介绍</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-lg text-slate-300 mb-6">啊噗噜工作室专注于风光摄影，捕捉自然与人文景观的美丽瞬间。我们致力于通过镜头展现世界的壮丽与细腻，传递对自然的敬畏与热爱。</p>
+                    <p class="text-lg text-slate-300 mb-6">每一张照片都是我们用心观察、耐心等待的成果，记录下大自然最动人的时刻和人文景观最真实的样貌。</p>
+                    <div class="flex space-x-4">
+                        <div class="bg-slate-800/50 p-4 rounded-lg text-center flex-1">
+                            <i class="fas fa-mountain text-blue-400 text-3xl mb-2"></i>
+                            <h3 class="font-semibold text-slate-200">自然风光</h3>
+                        </div>
+                        <div class="bg-slate-800/50 p-4 rounded-lg text-center flex-1">
+                            <i class="fas fa-city text-blue-400 text-3xl mb-2"></i>
+                            <h3 class="font-semibold text-slate-200">人文景观</h3>
+                        </div>
+                        <div class="bg-slate-800/50 p-4 rounded-lg text-center flex-1">
+                            <i class="fas fa-award text-blue-400 text-3xl mb-2"></i>
+                            <h3 class="font-semibold text-slate-200">专业品质</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="photo-card rounded-xl overflow-hidden">
+                    <img src="https://s.coze.cn/image/_f21xF3uNGo/" 
+                         alt="啊噗噜工作室工作场景" 
+                         class="w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 作品展示区 -->
+    <section id="gallery" class="py-20 px-4 bg-slate-800/30">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center section-title">作品展示</h2>
+            
+            <!-- 自然风光 -->
+            <div class="mb-20">
+                <h3 class="text-2xl font-semibold mb-8 flex items-center">
+                    <i class="fas fa-mountain text-blue-400 mr-3"></i> 自然风光
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="photo-card rounded-lg overflow-hidden">
+                        <img src="https://s.coze.cn/image/vCrhDj40UvI/" 
+                             alt="山川风光" 
+                             class="w-full h-64 object-cover">
+                        <div class="p-4 bg-slate-800/50">
+                            <h4 class="font-semibold text-slate-200">晨曦雪山</h4>
+                            <p class="text-sm text-slate-400">西藏 · 2023</p>
+                        </div>
+                    </div>
+                    <div class="photo-card rounded-lg overflow-hidden">
+                        <img src="https://s.coze.cn/image/bBVTJmQx50E/" 
+                             alt="湖泊风光" 
+                             class="w-full h-64 object-cover">
+                        <div class="p-4 bg-slate-800/50">
+                            <h4 class="font-semibold text-slate-200">霞映湖光</h4>
+                            <p class="text-sm text-slate-400">青海 · 2024</p>
+                        </div>
+                    </div>
+                    <div class="photo-card rounded-lg overflow-hidden">
+                        <img src="https://s.coze.cn/image/6dNfPaPzf10/" 
+                             alt="星空风光" 
+                             class="w-full h-64 object-cover">
+                        <div class="p-4 bg-slate-800/50">
+                            <h4 class="font-semibold text-slate-200">星河璀璨</h4>
+                            <p class="text-sm text-slate-400">内蒙古 · 2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 人文风光 -->
+            <div class="mb-20">
+                <h3 class="text-2xl font-semibold mb-8 flex items-center">
+                    <i class="fas fa-city text-blue-400 mr-3"></i> 人文风光
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="photo-card rounded-lg overflow-hidden">
+                        <img src="https://s.coze.cn/image/60Hz86XfJMQ/" 
+                             alt="城市建筑" 
+                             class="w-full h-64 object-cover">
+                        <div class="p-4 bg-slate-800/50">
+                            <h4 class="font-semibold text-slate-200">都市光影</h4>
+                            <p class="text-sm text-slate-400">上海 · 2024</p>
+                        </div>
+                    </div>
+                    <div class="photo-card rounded-lg overflow-hidden">
+                        <img src="https://s.coze.cn/image/FMiJESsFoHc/" 
+                             alt="乡村风情" 
+                             class="w-full h-64 object-cover">
+                        <div class="p-4 bg-slate-800/50">
+                            <h4 class="font-semibold text-slate-200">田园诗画</h4>
+                            <p class="text-sm text-slate-400">云南 · 2023</p>
+                        </div>
+                    </div>
+                    <div class="photo-card rounded-lg overflow-hidden">
+                        <img src="https://s.coze.cn/image/B_HKE83Lqt0/" 
+                             alt="古镇风情" 
+                             class="w-full h-64 object-cover">
+                        <div class="p-4 bg-slate-800/50">
+                            <h4 class="font-semibold text-slate-200">雨巷古韵</h4>
+                            <p class="text-sm text-slate-400">浙江 · 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 特色专题 -->
+            <div>
+                <h3 class="text-2xl font-semibold mb-8 flex items-center">
+                    <i class="fas fa-star text-blue-400 mr-3"></i> 特色专题
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="photo-card rounded-lg overflow-hidden">
+                        <img src="https://s.coze.cn/image/AoDg7198Eoo/" 
+                             alt="冬季雪景" 
+                             class="w-full h-80 object-cover">
+                        <div class="p-4 bg-slate-800/50">
+                            <h4 class="font-semibold text-slate-200">雪国童话</h4>
+                            <p class="text-slate-400">冬季雪景专题 · 2023-2024</p>
+                        </div>
+                    </div>
+                    <div class="photo-card rounded-lg overflow-hidden">
+                        <img src="https://s.coze.cn/image/bmEtt7tlcvQ/" 
+                             alt="秋季红叶" 
+                             class="w-full h-80 object-cover">
+                        <div class="p-4 bg-slate-800/50">
+                            <h4 class="font-semibold text-slate-200">秋色斑斓</h4>
+                            <p class="text-slate-400">秋季红叶专题 · 2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center section-title">关于我们</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="photo-card rounded-xl overflow-hidden">
+                    <img src="https://s.coze.cn/image/_i3MU5UsQjE/" 
+                         alt="啊噗噜工作室团队" 
+                         class="w-full h-auto">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-400">团队介绍</h3>
+                    <p class="text-slate-300 mb-6">啊噗噜工作室由一群热爱风光摄影的专业摄影师组成，团队成员均拥有多年摄影经验和艺术背景，致力于用镜头记录世界的美好。</p>
+                    
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-400">摄影理念</h3>
+                    <p class="text-slate-300 mb-6">我们相信每一处风景都有其独特的灵魂，每一次快门都是与自然的对话。我们追求真实与艺术的完美结合，用专业的技术和敏锐的观察力捕捉转瞬即逝的美丽。</p>
+                    
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-400">获奖经历</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-blue-600 rounded-full w-8 h-8 flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-trophy text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-200">2023国家地理摄影大赛</h4>
+                                <p class="text-sm text-slate-400">自然风光组金奖</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-600 rounded-full w-8 h-8 flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-trophy text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-200">2024索尼世界摄影奖</h4>
+                                <p class="text-sm text-slate-400">景观类优秀奖</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact" class="py-20 px-4 bg-slate-800/30">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center section-title">联系方式</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6 text-blue-400">联系我们</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="bg-blue-600 rounded-full w-10 h-10 flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <p class="text-slate-400">邮箱</p>
+                                <p class="font-semibold text-slate-200">contact@apulu-studio.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-blue-600 rounded-full w-10 h-10 flex items-center justify-center mr-4">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <p class="text-slate-400">电话</p>
+                                <p class="font-semibold text-slate-200">123-4567-8910</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-semibold mt-8 mb-6 text-blue-400">社交媒体</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-slate-700 hover:bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-weixin text-xl"></i>
+                        </a>
+                        <a href="#" class="bg-slate-700 hover:bg-red-500 w-12 h-12 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="bg-slate-700 hover:bg-pink-600 w-12 h-12 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="photo-card rounded-xl overflow-hidden">
+                    <img src="https://s.coze.cn/image/msXDfYVpq2k/" 
+                         alt="啊噗噜工作室环境" 
+                         class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="py-12 px-4 bg-slate-900 text-slate-400">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="text-2xl font-bold text-blue-400 mb-2">
+                        <i class="fas fa-camera-retro mr-2"></i>啊噗噜工作室
+                    </div>
+                    <p class="text-sm">专业风光摄影 · 记录世界美好</p>
+                </div>
+                <div class="text-sm text-center md:text-right">
+                    <p>© 2024 啊噗噜工作室 版权所有</p>
+                    <p class="mt-1">created by <a href="https://space.coze.cn" class="text-blue-400 hover:underline">coze space</a></p>
+                    <p class="mt-1">页面内容均由 AI 生成，仅供参考</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('open');
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // 关闭移动端菜单
+                    if (document.getElementById('mobileMenu').classList.contains('open')) {
+                        document.getElementById('mobileMenu').classList.remove('open');
+                    }
+                }
+            });
+        });
+
+        // 滚动动画
+        const animateOnScroll = function() {
+            const elements = document.querySelectorAll('.photo-card, .section-title');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // 初始化元素样式
+        document.querySelectorAll('.photo-card, .section-title').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+
+        // 监听滚动事件
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
